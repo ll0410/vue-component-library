@@ -16,6 +16,7 @@
     "lint": "eslint . --ext .ts,.vue,.cjs --fix",
     "storybook": "pnpm --filter @my-lib/components storybook",
     "docs": "pnpm --filter @my-lib/docs dev",
+    "playground": "pnpm --filter @vcl/playground dev",
     "changeset": "changeset",
     "version": "changeset version && pnpm install --lockfile-only",
     "release": "changeset publish"

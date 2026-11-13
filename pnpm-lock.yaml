@@ -48,6 +48,22 @@ importers:
         specifier: ^2.2.0
         version: 2.2.12(typescript@5.9.3)
 
+  apps/playground:
+    dependencies:
+      '@my-lib/components':
+        specifier: workspace:*
+        version: link:../../packages/components
+      vue:
+        specifier: ^3.5.0
+        version: 3.5.45(typescript@5.9.3)
+    devDependencies:
+      '@vitejs/plugin-vue':
+        specifier: ^6.0.0
+        version: 6.0.11(vite@8.3.8(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1))(vue@3.5.45(typescript@5.9.3))
+      vite:
+        specifier: ^8.0.0
+        version: 8.3.8(@types/node@22.20.5)(esbuild@0.28.2)(yaml@2.9.1)
+
   packages/components:
     devDependencies:
       '@storybook/vue3':
@@ -1161,6 +1177,16 @@ packages:
     cpu: [arm]
     os: [android]
 
+  '@rollup/rollup-android-arm64@4.68.3':
+    resolution: {integrity: sha512-5tY+GC/1gpt79cKS2DQzu6iD824j6BmI4q5Zb6qftZ4kWqIQmvR3DD4eJ2Gclu6/nVMYDk2IVpqxypWOiAuWJg==}
+    cpu: [arm64]
+    os: [android]
+
+  '@rollup/rollup-android-x64@4.68.3':
+    resolution: {integrity: sha512-nDBcQ/o3PMmGxmAzGBJFn+n1rb83Va9WSdFIq1AHmlEF3tuibVsyJ3kG5x13r7VIy6WI8SvzCdHVNSlSDIdj8w==}
+    cpu: [x64]
+    os: [android]
+
   '@rollup/rollup-darwin-arm64@4.68.3':
     resolution: {integrity: sha512-dra5zl0QWKkIkaMgNDNPC19gkMlPAfAf41yWlkGztXMIvUQrX9XWZFQRw7abhH3nks+XZGQpybINAxT2pKdFew==}
     cpu: [arm64]
@@ -1174,6 +1200,11 @@ packages:
   '@rollup/rollup-freebsd-arm64@4.68.3':
     resolution: {integrity: sha512-zdckkcxHDEEKyDbC1t21DeaaiKGymxbkBU9c3zyfaaz+8N96ItJw4nmzHhZF+Mukgt906fnf2tsc90pVyStuHA==}
     cpu: [arm64]
+    os: [freebsd]
+
+  '@rollup/rollup-freebsd-x64@4.68.3':
+    resolution: {integrity: sha512-9oXqI7g/ycEz7TyicdGBC4sL6PfWMXAx8u15f/nd7lYkCLJd8U8VdBfbpc4SSnRBU/e7aPALve3mhzasGDeCYg==}
+    cpu: [x64]
     os: [freebsd]
 
   '@rollup/rollup-linux-arm-gnueabihf@4.68.3':
@@ -1253,6 +1284,11 @@ packages:
     cpu: [x64]
     os: [linux]
     libc: [musl]
+
+  '@rollup/rollup-openbsd-x64@4.68.3':
+    resolution: {integrity: sha512-OiUclE7QDU4H/hr3ACRHhVGKWl+gNx+6Emignfq0hmNmzzTkZnT79wzB9NXKd0QH16S4t/wVqlAFBfC17nkZ5A==}
+    cpu: [x64]
+    os: [openbsd]
 
   '@rollup/rollup-openharmony-arm64@4.68.3':
     resolution: {integrity: sha512-s6EclDWmk6zvIfk1yixgYthk7xHNx0xu5cEF5RDpS4IHNTpfswRX6xOXVG5cHF5xWn0B6EpDGARhPQ520KTlsA==}
@@ -4445,6 +4481,12 @@ snapshots:
   '@rollup/rollup-android-arm-eabi@4.68.3':
     optional: true
 
+  '@rollup/rollup-android-arm64@4.68.3':
+    optional: true
+
+  '@rollup/rollup-android-x64@4.68.3':
+    optional: true
+
   '@rollup/rollup-darwin-arm64@4.68.3':
     optional: true
 
@@ -4452,6 +4494,9 @@ snapshots:
     optional: true
 
   '@rollup/rollup-freebsd-arm64@4.68.3':
+    optional: true
+
+  '@rollup/rollup-freebsd-x64@4.68.3':
     optional: true
 
   '@rollup/rollup-linux-arm-gnueabihf@4.68.3':
@@ -4491,6 +4536,9 @@ snapshots:
     optional: true
 
   '@rollup/rollup-linux-x64-musl@4.68.3':
+    optional: true
+
+  '@rollup/rollup-openbsd-x64@4.68.3':
     optional: true
 
   '@rollup/rollup-openharmony-arm64@4.68.3':
@@ -6333,9 +6381,12 @@ snapshots:
       '@types/estree': 1.0.10
     optionalDependencies:
       '@rollup/rollup-android-arm-eabi': 4.68.3
+      '@rollup/rollup-android-arm64': 4.68.3
+      '@rollup/rollup-android-x64': 4.68.3
       '@rollup/rollup-darwin-arm64': 4.68.3
       '@rollup/rollup-darwin-x64': 4.68.3
       '@rollup/rollup-freebsd-arm64': 4.68.3
+      '@rollup/rollup-freebsd-x64': 4.68.3
       '@rollup/rollup-linux-arm-gnueabihf': 4.68.3
       '@rollup/rollup-linux-arm-musleabihf': 4.68.3
       '@rollup/rollup-linux-arm64-gnu': 4.68.3
@@ -6349,6 +6400,7 @@ snapshots:
       '@rollup/rollup-linux-s390x-gnu': 4.68.3
       '@rollup/rollup-linux-x64-gnu': 4.68.3
       '@rollup/rollup-linux-x64-musl': 4.68.3
+      '@rollup/rollup-openbsd-x64': 4.68.3
       '@rollup/rollup-openharmony-arm64': 4.68.3
       '@rollup/rollup-win32-arm64-msvc': 4.68.3
       '@rollup/rollup-win32-ia32-msvc': 4.68.3

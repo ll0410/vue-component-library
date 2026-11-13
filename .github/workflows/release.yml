@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate registry secrets
+        env:
+          REGISTRY: ${{ vars.NPM_REGISTRY }}
+          TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "$REGISTRY" ]; then
+            echo "::error::缺少仓库变量 NPM_REGISTRY，请在 Settings → Variables 中配置私服地址"
+            exit 1
+          fi
+          if [ -z "$TOKEN" ]; then
+            echo "::error::缺少 Secret NPM_TOKEN，请在 Settings → Secrets 中配置发布令牌"
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: ${{ vars.NPM_REGISTRY }}
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm build:components
+
+      - name: Publish to private registry
+        run: pnpm --filter @my-lib/components publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
