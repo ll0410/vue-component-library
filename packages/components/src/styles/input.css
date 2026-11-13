@@ -1,0 +1,112 @@
+.ml-input {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.ml-input:hover {
+  border-color: #c0c4cc;
+}
+
+.ml-input:focus-within {
+  border-color: #409eff;
+}
+
+/* ===== Size ===== */
+.ml-input--large {
+  height: 48px;
+  padding: 0 12px;
+}
+.ml-input--large .ml-input__inner {
+  font-size: 16px;
+}
+
+.ml-input--medium {
+  height: 40px;
+  padding: 0 12px;
+}
+.ml-input--medium .ml-input__inner {
+  font-size: 14px;
+}
+
+.ml-input--small {
+  height: 32px;
+  padding: 0 8px;
+}
+.ml-input--small .ml-input__inner {
+  font-size: 12px;
+}
+
+/* ===== Inner ===== */
+.ml-input__inner {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #606266;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.ml-input__inner::placeholder {
+  color: #a8abb2;
+}
+
+/* ===== Prefix / Suffix ===== */
+.ml-input__prefix,
+.ml-input__suffix {
+  display: inline-flex;
+  align-items: center;
+  color: #a8abb2;
+  flex-shrink: 0;
+}
+
+.ml-input__prefix {
+  margin-right: 8px;
+}
+
+.ml-input__suffix {
+  margin-left: 8px;
+}
+
+/* ===== Clear ===== */
+.ml-input__clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background-color: #c0c4cc;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ml-input__clear:hover {
+  background-color: #909399;
+}
+
+/* ===== Disabled ===== */
+.ml-input--disabled {
+  background-color: #f5f7fa;
+  border-color: #e4e7ed;
+  cursor: not-allowed;
+}
+
+.ml-input--disabled .ml-input__inner {
+  color: #c0c4cc;
+  cursor: not-allowed;
+}
