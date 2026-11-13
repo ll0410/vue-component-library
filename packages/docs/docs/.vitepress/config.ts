@@ -26,7 +26,8 @@ export default defineConfig({
             { text: '单元测试策略', link: '/guide/05-testing' },
             { text: 'VitePress 文档站', link: '/guide/06-docs-site' },
             { text: '构建与 npm 发布', link: '/guide/07-build-publish' },
-            { text: '实战：从零造一个 Button', link: '/guide/08-button-example' }
+            { text: '实战：从零造一个 Button', link: '/guide/08-button-example' },
+            { text: '企业内使用', link: '/guide/09-enterprise-usage' }
           ]
         }
       ],

@@ -42,6 +42,7 @@ pnpm docs
 | `pnpm install` | 安装所有依赖 |
 | `pnpm storybook` | 启动 Storybook 开发环境 |
 | `pnpm docs` | 启动 VitePress 文档站 |
+| `pnpm playground` | 启动组件库接入示例应用 |
 | `pnpm test` | 运行全部测试 |
 | `pnpm test:components` | 仅运行组件库测试 |
 | `pnpm build` | 构建所有包 |
@@ -72,9 +73,11 @@ Vue Component Library/
 │   └── docs/                    # VitePress 文档站
 │       ├── docs/
 │       │   ├── .vitepress/      # 站点配置与主题
-│       │   ├── guide/           # 8 章开发指南
+│       │   ├── guide/           # 9 章开发指南
 │       │   └── components/      # 组件文档
 │       └── package.json
+├── apps/
+│   └── playground/              # 组件库接入示例应用（不发布）
 ├── .changeset/                  # Changesets 配置
 ├── AGENTS.md                    # 开发规范（含提交规范）
 └── package.json
@@ -94,6 +97,8 @@ Vue Component Library/
 ```bash
 pnpm add @my-lib/components
 ```
+
+企业内部私服安装需先配置 `.npmrc`，参见 [企业内使用](packages/docs/docs/guide/09-enterprise-usage.md) 与根目录 `.npmrc.example`。
 
 ```ts
 import { Button, Input } from '@my-lib/components';
@@ -142,6 +147,7 @@ app.mount('#app');
 6. VitePress 文档站
 7. 构建与 npm 发布
 8. 实战：从零造一个 Button
+9. 企业内使用（私服发布、版本策略、消费方接入）
 
 本地执行 `pnpm docs` 后访问 `/guide/01-architecture` 阅读。
 
