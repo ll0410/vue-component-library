@@ -8,13 +8,13 @@
 # 示例中的 registry 适用于 Nexus / Verdaccio / GitLab Package Registry，
 # 只需替换 host 与路径，具体差异见文档 guide/09-enterprise-usage。
 
-@my-lib:registry=https://npm.example.com/repository/npm-private/
+@vcl:registry=https://npm.example.com/repository/npm-private/
 //npm.example.com/repository/npm-private/:_authToken=${NPM_TOKEN}
 
 # Verdaccio 示例：
-# @my-lib:registry=https://npm.example.com/
+# @vcl:registry=https://npm.example.com/
 # //npm.example.com/:_authToken=${NPM_TOKEN}
 
 # GitLab Package Registry 示例：
-# @my-lib:registry=https://gitlab.example.com/api/v4/packages/npm/
+# @vcl:registry=https://gitlab.example.com/api/v4/packages/npm/
 # //gitlab.example.com/api/v4/packages/npm/:_authToken=${NPM_TOKEN}

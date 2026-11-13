@@ -95,14 +95,14 @@ Vue Component Library/
 ## 使用组件库
 
 ```bash
-pnpm add @my-lib/components
+pnpm add @vcl/components
 ```
 
 企业内部私服安装需先配置 `.npmrc`，参见 [企业内使用](packages/docs/docs/guide/09-enterprise-usage.md) 与根目录 `.npmrc.example`。
 
 ```ts
-import { Button, Input } from '@my-lib/components';
-import '@my-lib/components/style.css';
+import { Button, Input } from '@vcl/components';
+import '@vcl/components/style.css';
 ```
 
 ```vue
@@ -116,8 +116,8 @@ import '@my-lib/components/style.css';
 
 ```ts
 import { createApp } from 'vue';
-import { Button, Input, Select, Dialog } from '@my-lib/components';
-import '@my-lib/components/style.css';
+import { Button, Input, Select, Dialog } from '@vcl/components';
+import '@vcl/components/style.css';
 
 const app = createApp(App);
 [Button, Input, Select, Dialog].forEach((c) => app.component(c.name!, c));

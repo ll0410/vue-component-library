@@ -1,7 +1,7 @@
 <template>
   <main class="demo">
     <h1>VCL 组件库接入示例</h1>
-    <p class="demo__tip">本页通过 <code>@my-lib/components</code> 按需引入组件并加载 <code>style.css</code>。</p>
+    <p class="demo__tip">本页通过 <code>@vcl/components</code> 按需引入组件并加载 <code>style.css</code>。</p>
 
     <section class="demo__section">
       <h2>Button</h2>
@@ -50,7 +50,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Button, Dialog, Input, Select, type SelectOption } from '@my-lib/components';
+import { Button, Dialog, Input, Select, type SelectOption } from '@vcl/components';
 
 const username = ref('');
 const password = ref('');

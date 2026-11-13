@@ -76,7 +76,7 @@ dist/
 
 ```json
 {
-  "name": "@my-lib/components",
+  "name": "@vcl/components",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",

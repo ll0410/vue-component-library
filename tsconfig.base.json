@@ -16,7 +16,7 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "baseUrl": ".",
     "paths": {
-      "@my-lib/*": ["packages/*/src"]
+      "@vcl/*": ["packages/*/src"]
     }
   }
 }

@@ -36,11 +36,11 @@ packages:
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r --filter=./packages/* build",
-    "build:components": "pnpm --filter @my-lib/components build",
+    "build:components": "pnpm --filter @vcl/components build",
     "test": "pnpm -r --parallel test",
     "lint": "eslint . --ext .ts,.vue,.cjs --fix",
-    "storybook": "pnpm --filter @my-lib/components storybook",
-    "docs": "pnpm --filter @my-lib/docs dev",
+    "storybook": "pnpm --filter @vcl/components storybook",
+    "docs": "pnpm --filter @vcl/docs dev",
     "changeset": "changeset",
     "release": "changeset publish"
   },
@@ -65,15 +65,15 @@ packages:
 | 命令 | 含义 |
 |------|------|
 | `pnpm -r --parallel dev` | 递归并行运行所有包的 dev 脚本 |
-| `pnpm --filter @my-lib/components build` | 只构建指定包 |
+| `pnpm --filter @vcl/components build` | 只构建指定包 |
 | `pnpm -r --filter=./packages/* build` | 构建所有 packages/ 下的包 |
 
 ### filter 语法速查
 
 ```bash
-pnpm --filter @my-lib/components build   # 按包名
+pnpm --filter @vcl/components build   # 按包名
 pnpm --filter ./packages/components build  # 按路径
-pnpm -r --filter=!@my-lib/docs build    # 排除某个包
+pnpm -r --filter=!@vcl/docs build    # 排除某个包
 ```
 
 ## 2.4 .npmrc
@@ -103,7 +103,7 @@ auto-install-peers=true
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "baseUrl": ".",
     "paths": {
-      "@my-lib/*": ["packages/*/src"]
+      "@vcl/*": ["packages/*/src"]
     }
   }
 }
@@ -215,6 +215,6 @@ vue-component-library/
 pnpm ls -r --depth -1
 
 # 预期输出：
-# @my-lib/components@0.0.1
-# @my-lib/docs@0.0.1
+# @vcl/components@0.0.1
+# @vcl/docs@0.0.1
 ```

@@ -16,7 +16,7 @@
 
 ### 确定包 scope
 
-当前包名为 `@my-lib/components`。企业内建议替换为公司 scope（如 `@corp/components`），需要同步修改的只有 3 处：
+当前包名为 `@vcl/components`。企业内建议替换为公司 scope（如 `@corp/components`），需要同步修改的只有 3 处：
 
 1. `packages/components/package.json` 的 `name`
 2. `packages/docs/docs` 下所有示例代码中的 import 语句
@@ -49,7 +49,7 @@ scope 一旦发布就不建议再改，否则消费方需要全量替换 import�
 项目根目录提供了模板 `.npmrc.example`：
 
 ```ini
-@my-lib:registry=https://npm.example.com/repository/npm-private/
+@vcl:registry=https://npm.example.com/repository/npm-private/
 //npm.example.com/repository/npm-private/:_authToken=${NPM_TOKEN}
 ```
 
@@ -88,7 +88,7 @@ git push --follow-tags
 1. 校验仓库变量 `NPM_REGISTRY` 与 Secret `NPM_TOKEN` 是否存在
 2. `pnpm install --frozen-lockfile`
 3. `pnpm build:components`
-4. `pnpm --filter @my-lib/components publish --no-git-checks`
+4. `pnpm --filter @vcl/components publish --no-git-checks`
 
 发布前需要在仓库 Settings 中配置：
 
@@ -100,8 +100,8 @@ git push --follow-tags
 发布后校验：
 
 ```bash
-npm view @my-lib/components version --registry=https://npm.example.com/
-npm view @my-lib/components dist.tarball --registry=https://npm.example.com/
+npm view @vcl/components version --registry=https://npm.example.com/
+npm view @vcl/components dist.tarball --registry=https://npm.example.com/
 ```
 
 正常输出应为你刚才的版本号与私服上的 tarball 地址。
@@ -126,7 +126,7 @@ npm view @my-lib/components dist.tarball --registry=https://npm.example.com/
 
 ```bash
 # 标记废弃版本，引导升级
-npm deprecate "@my-lib/components@0.4.2" "存在样式缺陷，请升级到 0.4.3" --registry=https://npm.example.com/
+npm deprecate "@vcl/components@0.4.2" "存在样式缺陷，请升级到 0.4.3" --registry=https://npm.example.com/
 ```
 
 回滚则发布一个修复版本（`0.4.3`），不建议直接重发旧版本号——npm 私服通常不允许覆盖已发布版本。
@@ -136,7 +136,7 @@ npm deprecate "@my-lib/components@0.4.2" "存在样式缺陷，请升级到 0.4.
 ### 安装
 
 ```bash
-pnpm add @my-lib/components
+pnpm add @vcl/components
 ```
 
 `package.json` 中固定版本更利于企业内部稳定：
@@ -144,7 +144,7 @@ pnpm add @my-lib/components
 ```json
 {
   "dependencies": {
-    "@my-lib/components": "0.4.3"
+    "@vcl/components": "0.4.3"
   }
 }
 ```
@@ -152,8 +152,8 @@ pnpm add @my-lib/components
 ### 按需引入（推荐）
 
 ```ts
-import { Button, Input } from '@my-lib/components';
-import '@my-lib/components/style.css';
+import { Button, Input } from '@vcl/components';
+import '@vcl/components/style.css';
 ```
 
 ```vue
@@ -167,8 +167,8 @@ import '@my-lib/components/style.css';
 
 ```ts
 import { createApp } from 'vue';
-import { Button, Dialog, Input, Select } from '@my-lib/components';
-import '@my-lib/components/style.css';
+import { Button, Dialog, Input, Select } from '@vcl/components';
+import '@vcl/components/style.css';
 
 const app = createApp(App);
 [Button, Dialog, Input, Select].forEach((component) => {
@@ -182,7 +182,7 @@ app.mount('#app');
 | 事项 | 说明 |
 |------|------|
 | `vue` 必须由宿主应用安装 | `vue` 声明为 peerDependency，组件库不重复打包 |
-| 样式必须单独引入 | `@my-lib/components/style.css`，否则组件无样式 |
+| 样式必须单独引入 | `@vcl/components/style.css`，否则组件无样式 |
 | Vite 项目 | 无需额外配置，`exports` 已区分 `import` / `require` |
 | Webpack 4 | 需处理 `.mjs` 与 `exports` 字段，建议升级到 Webpack 5 |
 | TypeScript | 类型由 `dist/index.d.ts` 提供，`moduleResolution` 建议 `bundler` 或 `node16` |
@@ -200,7 +200,7 @@ pnpm playground         # 启动示例应用
 ```json
 {
   "dependencies": {
-    "@my-lib/components": "^0.4.3"
+    "@vcl/components": "^0.4.3"
   }
 }
 ```
@@ -208,7 +208,7 @@ pnpm playground         # 启动示例应用
 ## 9.7 升级与灰度
 
 - **锁版本**：业务方使用精确版本或 `~`，避免 minor 自动升级带来意外
-- **批量升级**：组件库发布 minor 后，统一在业务仓库执行 `pnpm up @my-lib/components`，走一次回归
+- **批量升级**：组件库发布 minor 后，统一在业务仓库执行 `pnpm up @vcl/components`，走一次回归
 - **灰度**：先在一个业务线升级验证，再全量推广；可在 changeset 中写清风险点
 - **破坏性变更**：提前一个版本在文档与 CHANGELOG 中通告，给出迁移示例
 
@@ -234,7 +234,7 @@ pnpm playground         # 启动示例应用
 | 问题 | 原因与处理 |
 |------|------------|
 | `Cannot find module 'vue'` | 组件库把 vue 作为 peerDependency，宿主应用需自行安装 vue |
-| 组件无样式 | 忘记引入 `@my-lib/components/style.css` |
+| 组件无样式 | 忘记引入 `@vcl/components/style.css` |
 | 类型提示缺失 | 检查 `moduleResolution`；确认安装的版本包含 `dist/index.d.ts` |
 | 私服 401 | `NPM_TOKEN` 未设置或已过期；确认 `.npmrc` 中 `_authToken` 对应的 host 与 registry 一致 |
 | 私服 404 | scope 未指向私服，或包尚未发布；用 `npm view` 带上 `--registry` 排查 |

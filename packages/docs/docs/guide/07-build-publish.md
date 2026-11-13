@@ -23,7 +23,7 @@ pnpm build:components
 pnpm test:components
 
 # 2. TypeScript 类型检查
-pnpm --filter @my-lib/components exec vue-tsc --noEmit
+pnpm --filter @vcl/components exec vue-tsc --noEmit
 
 # 3. ESLint 检查
 pnpm lint
@@ -43,7 +43,7 @@ npm pack --dry-run
 
 ```json
 {
-  "name": "@my-lib/components",
+  "name": "@vcl/components",
   "version": "0.0.1",
   "files": ["dist"],
   "main": "./dist/index.cjs",
@@ -93,7 +93,7 @@ pnpm changeset
 
 # 输出：.changeset/abc123.md
 # ---
-# '@my-lib/components': minor
+# '@vcl/components': minor
 # ---
 #
 # 添加了 Button 组件
@@ -189,16 +189,16 @@ jobs:
 发布后，别人这样用：
 
 ```bash
-npm install @my-lib/components
+npm install @vcl/components
 # 或
-pnpm add @my-lib/components
+pnpm add @vcl/components
 ```
 
 ```ts
 // main.ts
 import { createApp } from 'vue';
-import { Button } from '@my-lib/components';
-import '@my-lib/components/style.css';
+import { Button } from '@vcl/components';
+import '@vcl/components/style.css';
 import App from './App.vue';
 
 const app = createApp(App);
@@ -220,4 +220,4 @@ app.mount('#app');
 | `npm ERR! 402 Payment Required` | scoped 包（@xxx/yyy）发布到公共 registry 需要 `publishConfig.access: public` |
 | 用户报 `Cannot find module 'vue'` | 确认 `peerDependencies` 包含 vue，用户需自己安装 |
 | 类型声明找不到 | 检查 `vite-plugin-dts` 是否正确配置，`build` 是否包含 dts 生成 |
-| 样式没生效 | 用户需要单独 `import '@my-lib/components/style.css'` |
+| 样式没生效 | 用户需要单独 `import '@vcl/components/style.css'` |

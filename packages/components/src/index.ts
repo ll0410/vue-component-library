@@ -7,8 +7,8 @@ import './styles/dialog.css';
  * VCL Vue 组件库
  *
  * 使用方式：
- *   import { Button, Input, Select, Dialog } from '@my-lib/components';
- *   import '@my-lib/components/style.css';
+ *   import { Button, Input, Select, Dialog } from '@vcl/components';
+ *   import '@vcl/components/style.css';
  */
 
 export { Button } from './button';

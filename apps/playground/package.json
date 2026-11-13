@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@my-lib/components": "workspace:*",
+    "@vcl/components": "workspace:*",
     "vue": "^3.5.0"
   },
   "devDependencies": {

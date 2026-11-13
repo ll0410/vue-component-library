@@ -110,7 +110,7 @@ export default defineConfig({
 ## 代码块
 
 ```ts
-import { Button } from '@my-lib/components';
+import { Button } from '@vcl/components';
 ```
 
 ## 警告/提示
@@ -164,8 +164,8 @@ import DefaultTheme from 'vitepress/theme';
 import type { Theme } from 'vitepress';
 
 // 导入组件库（使用 workspace 协议）
-import { Button } from '@my-lib/components';
-import '@my-lib/components/style.css';
+import { Button } from '@vcl/components';
+import '@vcl/components/style.css';
 
 export default {
   extends: DefaultTheme,
@@ -182,13 +182,13 @@ export default {
 ```bash
 # 开发模式（热更新）
 pnpm docs
-# 等价于：pnpm --filter @my-lib/docs dev
+# 等价于：pnpm --filter @vcl/docs dev
 
 # 构建生产静态文件
 pnpm build:docs
 
 # 本地预览构建产物
-pnpm --filter @my-lib/docs preview
+pnpm --filter @vcl/docs preview
 ```
 
 ## 6.6 部署到 GitHub Pages
@@ -209,7 +209,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter @my-lib/docs build
+      - run: pnpm --filter @vcl/docs build
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -221,5 +221,5 @@ jobs:
 都是零配置：
 1. 连接 GitHub 仓库
 2. Framework Preset 选 Vite
-3. Build Command：`pnpm --filter @my-lib/docs build`
+3. Build Command：`pnpm --filter @vcl/docs build`
 4. Output Directory：`packages/docs/docs/.vitepress/dist`

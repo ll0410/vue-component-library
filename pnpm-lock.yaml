@@ -50,7 +50,7 @@ importers:
 
   apps/playground:
     dependencies:
-      '@my-lib/components':
+      '@vcl/components':
         specifier: workspace:*
         version: link:../../packages/components
       vue:

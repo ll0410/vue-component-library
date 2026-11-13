@@ -1,5 +1,5 @@
 {
-  "name": "@my-lib/components",
+  "name": "@vcl/components",
   "version": "0.0.1",
   "description": "My first Vue 3 component library",
   "license": "MIT",

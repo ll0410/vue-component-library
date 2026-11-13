@@ -34,7 +34,7 @@ pnpm workspaces  → 最严格的依赖隔离 + 磁盘空间优化 + 原生 work
 pnpm 的核心优势：
 - **严格隔离**：每个包只能访问自己声明的依赖，幽灵依赖零容忍
 - **硬链接存储**：所有项目共用一份 node_modules 实体，磁盘占用极小
-- **workspace 协议**：`@my-lib/components` 直接指向本地包，联调零成本
+- **workspace 协议**：`@vcl/components` 直接指向本地包，联调零成本
 
 ## 1.4 推荐技术栈全景
 

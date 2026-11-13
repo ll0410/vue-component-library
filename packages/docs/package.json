@@ -1,5 +1,5 @@
 {
-  "name": "@my-lib/docs",
+  "name": "@vcl/docs",
   "version": "0.0.1",
   "private": true,
   "type": "module",
